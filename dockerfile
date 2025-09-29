@@ -1,12 +1,14 @@
-# Use nginx as base image
 FROM nginx:alpine
 
-# Copy the game files to nginx html directory
-COPY . /usr/share/nginx/html
+# Borra el contenido default de nginx
+RUN rm -rf /usr/share/nginx/html/*
 
-# Expose port 80
+# Copia tu juego al folder de nginx
+COPY Ahorcado.html ahorcado.js estilo-ahorcado.css img/ /usr/share/nginx/html/
+
+# Exponer el puerto 80
 EXPOSE 80
 
-# Start nginx
+# Ejecuta Nginx en foreground
 CMD ["nginx", "-g", "daemon off;"]
 
