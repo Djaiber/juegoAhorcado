@@ -4,7 +4,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy game files to nginx directory
-COPY Ahorcado.html /usr/share/nginx/html/
+COPY index.html /usr/share/nginx/html/
 COPY ahorcado.js /usr/share/nginx/html/
 COPY estilo-ahoracado.css /usr/share/nginx/html/
 COPY img/ /usr/share/nginx/html/img/
