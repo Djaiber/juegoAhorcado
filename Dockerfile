@@ -1,14 +1,16 @@
 FROM nginx:alpine
 
-# Borra el contenido default de nginx
+# Remove default nginx content
 RUN rm -rf /usr/share/nginx/html/*
 
-# Copia tu juego al folder de nginx
-COPY Ahorcado.html ahorcado.js estilo-ahorcado.css img/ /usr/share/nginx/html/
+# Copy game files to nginx directory
+COPY Ahorcado.html /usr/share/nginx/html/
+COPY ahorcado.js /usr/share/nginx/html/
+COPY estilo-ahoracado.css /usr/share/nginx/html/
+COPY img/ /usr/share/nginx/html/img/
 
-# Exponer el puerto 80
+# Expose port 80
 EXPOSE 80
 
-# Ejecuta Nginx en foreground
+# Run nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
-
