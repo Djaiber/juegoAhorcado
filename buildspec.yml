@@ -1,4 +1,9 @@
 version: 0.2
+
+IMAGE_REPO_NAME=juegoahorcado
+IMAGE_TAG=latest
+AWS_DEFAULT_REGION=us-east-1
+
 phases:
   pre_build:
     commands:
